@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MY GROUPS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<script>
+    function group_details(id) {
+            window.location.href = 'http://127.0.0.1:8000/group_details/' + id;
+        }
+</script>
+
+<body class="w3-animate-zoom" style="background-image:url('https://media.istockphoto.com/id/1358767025/photo/christmas-gift-box-with-red-ribbon-and-empty-label-for-text-and-santa-hat.webp?b=1&s=170667a&w=0&k=20&c=jsJeT1yKe0s7pMKWOqGMka-Azu-XaKQAFICN_S3SEUc=')">
+<div class="w3-panel">
+    <div class="w3-bar w3-black w3-large">
+        <a href="http://127.0.0.1:8000/home/" class="w3-bar-item w3-button w3-mobile">Home</a>
+        <a href="http://127.0.0.1:8000/join_group/" class="w3-bar-item w3-button w3-mobile">Join Group</a>
+        <a href="http://127.0.0.1:8000/create_group/" class="w3-bar-item w3-button w3-mobile">Create Group</a>
+        <div class="w3-dropdown-hover w3-mobile w3-right">
+            <button class="w3-button fa fa-user w3-xlarge">My Account<i class="fa fa-caret-down"></i></button>
+            <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
+                <a href="http://127.0.0.1:8000/my_groups/" class="w3-bar-item w3-button w3-mobile w3-green">My Groups</a>
+                <a href="http://127.0.0.1:8000/login/" class="w3-bar-item w3-button w3-mobile">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if my_groups|length == 0 %}
+<div class="w3-panel w3-yellow w3-display-container w3-middle w3-round-large">
+          <span onclick="this.parentElement.style.display='none'"
+                class="w3-button w3-large w3-display-topright">&times;</span>
+    <h3>Hello {{name}}!</h3>
+    <p>You haven`t created or joined a group yet.</p>
+</div>
+{% endif %}
+
+{% for my_group in my_groups %}
+<div class="w3-panel w3-lime w3-leftbar w3-border-green" style="width:1500px;position:relative;left:20px">
+    <p onclick="group_details('{{my_group.0}}')" style="padding-left:20px" class="fa fa-group w3-xlarge">&nbsp;&nbsp;&nbsp;&nbsp;{{my_group.1}}</p>
+</div>
+{% endfor %}
+</body>
+</html>
