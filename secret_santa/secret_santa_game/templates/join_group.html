@@ -9,14 +9,14 @@
 <body class="w3-animate-zoom" style="background-image:url('https://media.istockphoto.com/id/1358767025/photo/christmas-gift-box-with-red-ribbon-and-empty-label-for-text-and-santa-hat.webp?b=1&s=170667a&w=0&k=20&c=jsJeT1yKe0s7pMKWOqGMka-Azu-XaKQAFICN_S3SEUc=')">
 <div class="w3-panel">
     <div class="w3-bar w3-black w3-large">
-        <a href="http://127.0.0.1:8000/home/" class="w3-bar-item w3-button w3-mobile">Home</a>
-        <a href="http://127.0.0.1:8000/join_group/" class="w3-bar-item w3-button w3-mobile w3-green">Join Group</a>
-        <a href="http://127.0.0.1:8000/create_group/" class="w3-bar-item w3-button w3-mobile">Create Group</a>
+        <a href="{% url 'home' %}" class="w3-bar-item w3-button w3-mobile">Home</a>
+        <a href="{% url 'join_group' %}" class="w3-bar-item w3-button w3-mobile w3-green">Join Group</a>
+        <a href="{% url 'create_group' %}" class="w3-bar-item w3-button w3-mobile">Create Group</a>
         <div class="w3-dropdown-hover w3-mobile w3-right">
             <button class="w3-button fa fa-user w3-xlarge">My Account<i class="fa fa-caret-down"></i></button>
             <div class="w3-dropdown-content w3-bar-block w3-dark-grey">
-                <a href="http://127.0.0.1:8000/my_groups/" class="w3-bar-item w3-button w3-mobile">My Groups</a>
-                <a href="http://127.0.0.1:8000/login/" class="w3-bar-item w3-button w3-mobile">Logout</a>
+                <a href="{% url 'my_groups' %}" class="w3-bar-item w3-button w3-mobile">My Groups</a>
+                <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-mobile">Logout</a>
             </div>
         </div>
     </div>
